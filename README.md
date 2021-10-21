@@ -79,4 +79,4 @@ http://demo.loginradius.com
 
  Current maintainers:
  * LoginRadius - http://www.loginradius.com
- * Email: hello [at] loginradius [dot] com
+ * Email: developers@loginradius.com
