@@ -38,22 +38,6 @@ General documentation regarding the LoginRadius REST API and related flows can b
   *  Restructured Plugin Folder Structure.
   *  Replaced Hosted page module name with Identity Experience Framework Module.
 
-###  3.0.1
-  *  Capitalised HTTP Method Names.
-  
-###  3.0.0
-  *  Removed some Advance options from backend and they are directly configured from User Dashboard.
-  *  Implemented set password functionality for social users.
-  *  Added Email templates options.
-  *  Added Fallback V2JS.
-    
-###  2.0.0
-  *  Migrated Extension on V2 APIs.
-  *  Removed social login, social Profile Data, social sharing module from the package.
-  *  Added add/remove email functionality from frontend.
-  *  Added redirection functionality based on referer or redirect_to url.
-
-
 ## FAQ
 
  Q: What is LoginRadius?
