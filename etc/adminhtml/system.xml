@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/system_file.xsd">
+    <system>
+        <tab id="lractivation" translate="label" sortOrder="100">
+             <label><![CDATA[LoginRadius]]></label>
+        </tab>
+         <section id="lractivation" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Activation</label>
+            <tab>lractivation</tab>
+            <resource>LoginRadius_Ciam::activation_config</resource>
+            <group id="activation" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>LoginRadius API Configurations</label>
+                <field id="site_api" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>LoginRadius API Key*</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="site_secret" translate="label" type="password" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>LoginRadius API Secret*</label>
+                    <validate>required-entry</validate>  
+                </field>
+            </group>
+        </section>
+        <section id="lrauthentication" translate="label" sortOrder="132" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Authentication</label>
+            <tab>lractivation</tab>
+            <resource>LoginRadius_CustomerRegistration::customerregistration_config</resource>
+            <group id="ief_settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Identity Experience Framework</label>
+                <field id="enable_ief_page" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Identity Experience Framework</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip><![CDATA[From here, Identity Experience Framework functionality can be enabled. It is recommended that SSO should be enabled with the Identity Experience Framework.]]></tooltip>
+                </field>   
+            </group>
+            <group id="redirection_settings" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Redirection Settings</label>                 
+                <field id="login_redirection" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Redirection after login</label>
+                    <source_model>LoginRadius\Ciam\Model\Source\Redirection</source_model>
+                    <tooltip><![CDATA[This feature sets the redirection to the page where user will get redirected to post login.]]></tooltip>
+                </field>
+                <field id="custom_login_redirection" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <validate>required-entry</validate>
+                    <label>Enter custom URL</label>
+                    <depends>
+                        <field id="login_redirection">custom</field>
+                    </depends>
+                </field>
+                <field id="checkout_redirection" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Redirection while checkout</label>
+                    <source_model>LoginRadius\Ciam\Model\Source\RedirectionCheckout</source_model>
+                   <tooltip><![CDATA[This feature sets the redirection to the page where user will get redirected while checkout.]]></tooltip>
+                </field>
+            </group>
+       
+            <group id="email_authentication_settings" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Email Authentication Settings</label>
+                <field id="prompt_password_on_social_login" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable prompt password on Social login</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip><![CDATA[This feature when enabled, will prompt the user to set the password at the time of login from any social provider.]]></tooltip>
+                </field>
+                <field id="username_login" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                   <label>Enable login with username</label>
+                   <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                   <tooltip><![CDATA[This feature when enabled, will let the user to login with username.]]></tooltip>
+                </field> 
+                 <field id="always_ask_email_for_unverified" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ask for email from unverified user</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip><![CDATA[This feature when enabled, will ask for email every time user tries to login if email is not verified.]]></tooltip>
+                </field>
+                <field id="ask_required_field_on_traditional_login" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ask for required field on traditional login</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip><![CDATA[This feature when enabled, will ask for newly added required fields on traditional login.]]></tooltip>
+                </field>
+                 <field id="welcome_email" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Welcome Email Template</label>
+                    <source_model>LoginRadius\Ciam\Model\Source\Welcome</source_model>
+                    <tooltip><![CDATA[Select the name of Welcome email template which is created in the LoginRadius Dashboard.]]></tooltip>
+                </field>
+                <field id="verification_email" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Account verification email template</label>
+                    <source_model>LoginRadius\Ciam\Model\Source\Verificationemail</source_model>
+                    <tooltip><![CDATA[Select the name of Account verification email template which is created in the LoginRadius Dashboard.]]></tooltip>
+                </field>
+                <field id="forgot_email" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Reset Password Email Template</label>
+                    <source_model>LoginRadius\Ciam\Model\Source\Resetpass</source_model>
+                    <tooltip><![CDATA[Select the name of Reset password email template which is created in the LoginRadius Dashboard.]]></tooltip>
+                </field>
+            </group>
+
+            <group id="phone_authentication_settings" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Phone Authentication Settings</label>         
+                <field id="exist_phone_no" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Check phone number exist or not</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>    
+                     <tooltip><![CDATA[Turn on, if you want to enable Phone Exist functionality.]]></tooltip>                
+                </field>              
+                <field id="welcome_sms_template" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Phone welcome SMS template</label>  
+                    <source_model>LoginRadius\Ciam\Model\Source\Welcomesms</source_model>
+                     <tooltip><![CDATA[Select the name of Phone welcome SMS template which is created in the LoginRadius Dashboard.]]></tooltip>           
+                </field>              
+                <field id="sms_template_phone_verification" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Phone verification SMS template</label>   
+                     <source_model>LoginRadius\Ciam\Model\Source\Verificationsms</source_model>
+                      <tooltip><![CDATA[Select the name of Phone verification SMS template which is created in the LoginRadius Dashboard.]]></tooltip>           
+                </field>
+                <field id="sms_template_reset_phone" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Password reset SMS template</label>  
+                    <source_model>LoginRadius\Ciam\Model\Source\Resetsms</source_model>
+                     <tooltip><![CDATA[Select the name of Password reset SMS template which is created in the LoginRadius Dashboard.]]></tooltip>           
+                </field>              
+                <field id="sms_template_change_phone_number" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Change phone number SMS template</label>   
+                     <source_model>LoginRadius\Ciam\Model\Source\Changesms</source_model>
+                      <tooltip><![CDATA[Select the name of Change phone number SMS template which is created in the LoginRadius Dashboard.]]></tooltip>           
+                </field>
+            </group>            
+        </section>
+        <section id="lradvancedsettings" translate="label" sortOrder="135" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Advanced Settings</label>
+            <tab>lractivation</tab>
+            <resource>LoginRadius_CustomerRegistration::customerregistration_config</resource>
+            
+            <group id="advanced_settings" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Advanced Settings</label>        
+                <field id="passwordless_login" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Passwordless Link Login</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip><![CDATA[This feature enables Passwordless Link Login on the login form.]]></tooltip>
+                </field> 
+                <field id="passwordless_login_email_template" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Passwordless link login email template</label>
+                    <depends>
+                        <field id="passwordless_login">1</field>
+                    </depends>
+                    <source_model>LoginRadius\Ciam\Model\Source\PasswordLessLoginEmail</source_model>
+                    <tooltip><![CDATA[Select the name of Passwordless link login email template which is created in the LoginRadius Dashboard.]]></tooltip>
+                </field>
+                <field id="passwordless_otp_login" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable passwordless OTP login</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip><![CDATA[Turn on, if you want to enable Passwordless OTP login.]]></tooltip>
+                </field>
+                <field id="passwordless_otp_login_template" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Passwordless OTP login SMS template</label>
+                    <depends>
+                        <field id="passwordless_otp_login">1</field>
+                    </depends>
+                    <source_model>LoginRadius\Ciam\Model\Source\PasswordLessLoginOtp</source_model>
+                    <tooltip><![CDATA[Select the name of Passwordless OTP template which is created in the LoginRadius Dashboard.]]></tooltip>
+                </field>
+                 <field id="display_password_strength" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable password strength</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>       
+                    <tooltip><![CDATA[This feature when enabled, shows the strength bar under the password field on registration form, reset password form and change password form.]]></tooltip>               
+                </field>  
+                <field id="notification_time_out" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                   <label>Message timeout setting (in seconds)</label>
+                   <tooltip><![CDATA[Enter the duration (in seconds) to hide response message.]]></tooltip>
+                </field> 
+                <field id="save_mail_in_db" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Do you want to store customer email address in the database</label>
+                    <source_model>LoginRadius\Ciam\Model\Source\DeleteUser</source_model>       
+                    <tooltip><![CDATA[If this option is selected as yes it will store customer email address otherwise a random email id will be stored.]]></tooltip>
+                </field>  
+                 <field id="delete_lr_user_account" translate="label" type="select" sortOrder="75" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Do you want to delete the customer profile from the LoginRadius database on account delete in Magento</label>
+                    <source_model>LoginRadius\Ciam\Model\Source\DeleteUser</source_model>       
+                    <tooltip><![CDATA[If this option is selected as "No", the customer's profile will not be deleted from the LoginRadius database. The customer will not be able to register again with the same email ID, but he will be able to login with the same credentials.]]></tooltip>
+                </field>              
+                <field id="terms_conditions" translate="label" type="editor" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Terms and Conditions </label>
+                    <frontend_model>LoginRadius\Ciam\Model\Source\Editor</frontend_model>                    
+                </field>                                  
+                <field id="custom_js_options" translate="label" type="textarea" sortOrder="90" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Custom options for LoginRadius interface</label>
+                    <tooltip><![CDATA[This feature allows custom CIAM options to be enabled on the LoginRadius interface.]]></tooltip>
+                </field>  
+                <field id="registration_form_schema" translate="label" type="textarea" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Registration form schema</label>
+                    <tooltip><![CDATA[From here, you can customize the default registration form according to your desired fields, validation rules and field types.]]></tooltip>
+                </field>  
+            </group>  
+        </section>
+        <section id="lrsinglesignon" translate="label" sortOrder="135" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Single Sign On</label>
+            <tab>lractivation</tab>
+            <resource>LoginRadius_SingleSignOn::singlesignon_config</resource>
+            <group id="singlesignon" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Single Sign On Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Do you want to enable Single Sign On (SSO)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip><![CDATA[This feature allows Single Sign On to be enabled on different sites with common LoginRadius app.]]></tooltip>
+                </field>
+            </group>            
+        </section>
+        <section id="apilog" translate="label" sortOrder="533" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Debug Log</label>
+            <tab>lractivation</tab>
+            <resource>LoginRadius_Apilog::apilog_config</resource>
+            <group id="showapilog" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+               
+                <field id="log" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <source_model>LoginRadius\Ciam\Model\Source\Info</source_model>
+                   
+                </field>
+                <field id="hidden" translate="label" type="hidden" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

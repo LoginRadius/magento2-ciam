@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="lr_sociallogin" resource="default" engine="innodb" comment="Basic social Profile Data">
+    <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true" comment="Auto Increment Id"/>
+    <column xsi:type="int" name="entity_id" padding="11" unsigned="false" nullable="false" identity="false" comment="Customer Id"/>
+    <column xsi:type="text" name="sociallogin_id" nullable="false" comment="Social Provider Id"/>
+    <column xsi:type="varchar" name="uid" nullable="true" length="50" comment="uid"/>
+    <column xsi:type="text" name="avatar" nullable="true" comment="Avatar"/>
+    <column xsi:type="varchar" name="verified" nullable="true" length="1" comment="Verified"/>
+    <column xsi:type="varchar" name="vkey" nullable="true" length="40" comment="Verified Key"/>
+    <column xsi:type="varchar" name="status" nullable="true" length="50" comment="Status"/>
+    <column xsi:type="varchar" name="provider" nullable="true" length="20" comment="Provider Name"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="id"/>
+    </constraint>
+  </table>
+  <table name="lr_api_log" resource="default" engine="innodb" comment="LR API Log">
+    <column xsi:type="int" name="id" padding="11" unsigned="false" nullable="false" identity="true" comment="Auto Increment Id"/>
+    <column xsi:type="text" name="api_url" nullable="true" comment="Api Url"/>
+    <column xsi:type="varchar" name="requested_type" nullable="true" length="50" comment="Requested Type"/>
+    <column xsi:type="text" name="data" nullable="true" comment="Data"/>
+    <column xsi:type="text" name="response" nullable="true" comment="Response"/>
+    <column xsi:type="varchar" name="response_type" nullable="true" length="100" comment="Response Type"/>
+    <column xsi:type="varchar" name="created_date" nullable="true" length="50" comment="Created Date"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="id"/>
+    </constraint>
+  </table>
+</schema>

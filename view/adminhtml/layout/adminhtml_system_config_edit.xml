@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <!-- for css file -->        
+        <css src="LoginRadius_Ciam::ciam/css/style.css"/>        
+        <script src="LoginRadius_Ciam::ciam/js/activation.js"/>   
+        <link src="LoginRadius_Ciam::ciam/js/apilog.js"/>        
+    </head>
+    <body>
+        <referenceBlock name="after.body.start">
+            <block class="LoginRadius\Ciam\Block\Ciam" name="activation_head_script" template="secret.phtml" cacheable="false"/>
+        </referenceBlock>
+    </body>
+</page>

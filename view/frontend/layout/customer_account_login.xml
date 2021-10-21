@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <!-- for js and css file -->
+        <css src="LoginRadius_Ciam::ciam/css/style.css"/>
+        <script src_type="url" src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"/>
+        <script src="LoginRadius_Ciam::ciam/js/script.js"/>
+    </head>
+    <referenceBlock name="after.body.start">
+        <block class="LoginRadius\Ciam\Block\Ciam" name="activation_head_script" template="head.phtml" cacheable="false"/>
+    </referenceBlock>
+    <referenceContainer name="content">
+        <block class="LoginRadius\Ciam\Block\Ciam" name="activation_login" template="login.phtml" cacheable="false"/>
+        <block class="LoginRadius\Ciam\Block\Ciam" name="identityexperienceframework_head" template="iefpage.phtml" cacheable="false" />
+        <referenceBlock name="customer.login.container" remove="true"/>
+    </referenceContainer>
+</page>

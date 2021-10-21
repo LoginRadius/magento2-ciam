@@ -1,0 +1,38 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <lrauthentication>
+            <redirection_settings>
+                <enable_ief_page>0</enable_ief_page>
+                <login_redirection>same</login_redirection>
+            </redirection_settings>
+            <email_authentication_settings>
+                <prompt_password_on_social_login>1</prompt_password_on_social_login>
+                <username_login>1</username_login>
+                <always_ask_email_for_unverified>1</always_ask_email_for_unverified>
+                <ask_required_field_on_traditional_login>1</ask_required_field_on_traditional_login>
+                <welcome_email></welcome_email>
+                <verification_email></verification_email>
+                <forgot_email></forgot_email>
+            </email_authentication_settings>
+            <phone_authentication_settings>
+                <exist_phone_no>0</exist_phone_no>
+                <welcome_sms_template></welcome_sms_template>
+                <sms_template_phone_verification></sms_template_phone_verification>
+                <sms_template_reset_phone></sms_template_reset_phone>
+                <sms_template_change_phone_number></sms_template_change_phone_number>
+            </phone_authentication_settings>
+            <interface_customization_settings>
+                <title>Social Login</title>
+                <form_validation_message>1</form_validation_message>
+                <terms_conditions></terms_conditions>
+                <delay_time></delay_time>
+                <google_recaptcha></google_recaptcha>
+            </interface_customization_settings>
+        </lrauthentication>
+        <lrsinglesignon>
+            <loginradius_singlesignon>
+                <enabled>1</enabled>
+            </loginradius_singlesignon>
+        </lrsinglesignon>
+    </default>
+</config>

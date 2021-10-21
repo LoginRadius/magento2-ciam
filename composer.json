@@ -1,0 +1,26 @@
+{
+    "name": "loginradius/magento2-ciam",
+    "description": "Authentication and SSO for Magento2. Module Manage All Authentication system on Magento 2 store with Social Network As well As Traditionally",
+    "type": "magento2-module",
+    "version": "5.1.0",
+    "license": [
+        "OSL-3.0"
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "loginradius/php-sdk": "*"
+    },
+    "authors": [
+        {
+            "name": "LoginRadius",
+            "email": "developers@loginradius.com"
+        }
+    ],
+    
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+          "LoginRadius\\Ciam\\": ""
+        }
+    }
+}

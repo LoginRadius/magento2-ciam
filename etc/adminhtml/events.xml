@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/Event/etc/events.xsd">
+    <event name="model_save_before">
+        <observer name="loginradius_activation_model_save_before" instance="LoginRadius\Ciam\Observer\CheckKey" />
+        <observer name="loginradius_apilog_model_save_before" instance="LoginRadius\Ciam\Observer\Apilog" />
+    </event>   
+    <event name="model_save_after">
+        <observer name="loginradius_activation_model_save_after" instance="LoginRadius\Ciam\Observer\SaveKey" />
+    </event>  
+    <event name="customer_save_after_data_object">
+        <observer name="customer_save_after_data_object" instance="LoginRadius\Ciam\Observer\CreateUser" />
+    </event>
+    <event name="adminhtml_customer_save_after">
+        <observer name="adminhtml_customer_save_after" instance="LoginRadius\Ciam\Observer\EditUser" />
+    </event>
+    <event name="customer_delete_commit_after">
+        <observer name="customer_delete_commit_after" instance="LoginRadius\Ciam\Observer\DeleteUser" />
+    </event>
+</config>

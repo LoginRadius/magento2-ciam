@@ -1,0 +1,17 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <!-- for css file -->
+        <css src="LoginRadius_Ciam::ciam/css/style.css"/>
+        <script src_type="url" src="https://auth.lrcontent.com/v2/js/LoginRadiusV2.js"/>
+        <script src="LoginRadius_Ciam::ciam/js/script.js"/>
+    </head>
+    <body>
+        <referenceBlock name="after.body.start">
+            <block class="LoginRadius\Ciam\Block\Ciam" name="activation_head_script" template="head.phtml" cacheable="false"/>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="LoginRadius\Ciam\Block\Ciam" name="verifyemail" template="verifyemail.phtml" />
+        </referenceContainer>     
+    </body>
+</page>
