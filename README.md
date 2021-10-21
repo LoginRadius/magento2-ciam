@@ -1,4 +1,4 @@
-# CIAM LoginRadius
+# Authentication and SSO by LoginRadius
 
 ---
 
