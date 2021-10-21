@@ -1,4 +1,4 @@
-# Authentication and SSO by LoginRadius
+# Authentication and SSO For Magento2 by LoginRadius
 
 ![Home Image](http://docs.lrcontent.com/resources/github/banner-1544x500.png)
 
